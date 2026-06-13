@@ -241,6 +241,15 @@ th{
 td{color:var(--cinza)}
 td:first-child{color:var(--branco);font-weight:500}
 .obs{font-size:.88rem;color:var(--cinza);margin-top:1rem;max-width:60ch}
+.local{
+  display:inline-flex;align-items:center;gap:.6rem;
+  margin-top:1.4rem;
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;font-size:.88rem;
+  color:var(--dourado);transition:.2s;
+}
+.local:hover{color:#fff}
+.local svg{width:18px;height:18px;flex-shrink:0}
 @media(max-width:860px){#horarios{background-image:none}}
 
 /* ===== PROFESSORES ===== */
