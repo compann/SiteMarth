@@ -176,6 +176,34 @@
   </div>
 </section>
 
+<!-- ===== GALERIA DA EQUIPE ===== -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nossa equipe</span>
+      <h2 class="display">A família no tatame</h2>
+    </div>
+  </div>
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="images/equipe1.jpg" alt="Equipe Marth Team BJJ">
+      <img src="images/equipe2.jpg" alt="Equipe Marth Team BJJ">
+      <img src="images/equipe3.jpg" alt="Equipe Marth Team BJJ">
+      <img src="images/equipe4.jpg" alt="Equipe Marth Team BJJ">
+    </div>
+    <button class="c-prev" aria-label="Anterior">&#8249;</button>
+    <button class="c-next" aria-label="Próxima">&#8250;</button>
+    <div class="c-dots">
+      <button class="c-dot active" aria-label="Foto 1"></button>
+      <button class="c-dot" aria-label="Foto 2"></button>
+      <button class="c-dot" aria-label="Foto 3"></button>
+      <button class="c-dot" aria-label="Foto 4"></button>
+    </div>
+  </div>
+</section>
+
+<div class="faixa" aria-hidden="true"></div>
+
 <!-- ===== CTA FINAL ===== -->
 <section class="cta-final">
   <div class="wrap reveal">
@@ -212,6 +240,24 @@
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Carousel
+  const track = document.querySelector('.carousel-track');
+  const dots  = document.querySelectorAll('.c-dot');
+  const total = 4;
+  let cur = 0, timer;
+
+  function goTo(n) {
+    cur = (n + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+  function startTimer() { clearInterval(timer); timer = setInterval(() => goTo(cur + 1), 4500); }
+
+  document.querySelector('.c-next').addEventListener('click', () => { goTo(cur + 1); startTimer(); });
+  document.querySelector('.c-prev').addEventListener('click', () => { goTo(cur - 1); startTimer(); });
+  dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); startTimer(); }));
+  startTimer();
 </script>
 </body>
 </html>
