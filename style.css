@@ -244,7 +244,7 @@ td:first-child{color:var(--branco);font-weight:500}
 @media(max-width:860px){#horarios{background-image:none}}
 
 /* ===== PROFESSORES ===== */
-.profs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.profs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
 .prof{
   position:relative;aspect-ratio:3/4;overflow:hidden;
   background:var(--grafite);
@@ -278,7 +278,8 @@ td:first-child{color:var(--branco);font-weight:500}
   font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;
   letter-spacing:.18em;font-size:.76rem;color:var(--dourado);
 }
-@media(max-width:760px){.profs{grid-template-columns:1fr}.prof{aspect-ratio:4/4.6}}
+@media(max-width:980px){.profs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.profs{grid-template-columns:1fr}.prof{aspect-ratio:4/4.6}}
 
 /* ===== CTA FINAL ===== */
 .cta-final{
